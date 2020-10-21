@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"src/test/resources/features"},
 		glue = {"steps", "setup"},
 		snippets = SnippetType.CAMELCASE,
-	    tags = {"@cadastroPositivo"},
+	    tags = {"@cadastroNegativoTelefone"},
 		dryRun = false,
 		strict = false
 		

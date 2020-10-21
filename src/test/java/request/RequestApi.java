@@ -23,47 +23,15 @@ public class RequestApi {
 	}
 	
 	
-	public void getApiCadastroUser() {
-		
-		RestAssured.baseURI = "https://petstore.swagger.io/v2/user/createWithList";
+	public Response getApiCadastroUser(String ddd, String telefone) {
+		String url  = "http://localhost:8080/pessoas/{ddd}/{numero}";
 		Response response = RestAssured.given().relaxedHTTPSValidation().log().all()
 				.header("Content-Type","application/json")
 				.header("Accept","application/json")
-				.body("[\r\n" + 
-						"  {\r\n" + 
-						"    \"id\": 0,\r\n" + 
-						"    \"username\": \"Ana Maia\",\r\n" + 
-						"    \"firstName\": \"string\",\r\n" + 
-						"    \"lastName\": \"string\",\r\n" + 
-						"    \"email\": \"string\",\r\n" + 
-						"    \"password\": \"string\",\r\n" + 
-						"    \"phone\": \"string\",\r\n" + 
-						"    \"userStatus\": 0\r\n" + 
-						"  },\r\n" + 
-						"{\r\n" + 
-						"    \"id\": 0,\r\n" + 
-						"    \"username\": \"Rodrigo Mendes\",\r\n" + 
-						"    \"firstName\": \"string\",\r\n" + 
-						"    \"lastName\": \"string\",\r\n" + 
-						"    \"email\": \"string\",\r\n" + 
-						"    \"password\": \"string\",\r\n" + 
-						"    \"phone\": \"string\",\r\n" + 
-						"    \"userStatus\": 0\r\n" + 
-						"  },\r\n" + 
-						"{\r\n" + 
-						"    \"id\": 0,\r\n" + 
-						"    \"username\": \"Tatiana Vasconcelos\",\r\n" + 
-						"    \"firstName\": \"string\",\r\n" + 
-						"    \"lastName\": \"string\",\r\n" + 
-						"    \"email\": \"string\",\r\n" + 
-						"    \"password\": \"string\",\r\n" + 
-						"    \"phone\": \"string\",\r\n" + 
-						"    \"userStatus\": 0\r\n" + 
-						"  }\r\n" + 
-						"]")
-				.post();
-		response.then().log().all().statusCode(200);
-		response.then().log().all();			
+				.pathParam("ddd",ddd)
+		        .pathParam("numero",telefone)
+				.get(url);
+		return response;		
 		}
 
 }

@@ -23,5 +23,16 @@ public class CadastroSteps {
 	public void validoQueOCadastradaFoiRealizado() throws Throwable {
 		cadastroAction.validarCadastroPositivo();
 	}
+	
+	@Então("^Valido que o cadastrado não foi realizado por duplicidade no cpf$")
+	public void validoQueOCadastradoNãoFoiRealizado() throws Throwable {
+		cadastroAction.validarCadastroNegativoCpf();
+	}
+	
+	@Então("^Valido que o cadastrado não foi realizado por duplicidade no telefone$")
+	public void validoQueOCadastradoNãoFoiRealizadoDuplicidadeNoTelefone() throws Throwable {
+		cadastroAction.validarCadastroNegativoTelefone();
+
+	}
 
 }
